@@ -2,10 +2,29 @@ import express from 'express';
 import User from './models/User.js';
 
 import db from './config/index.js';
+import bodyParser from "body-parser";
+import cookieParser from "cookie-parser";
+import session from "express-session";
+import router from "./routes/index.js";
 const app = express()
 
 app.use(express.json());
-
-app.listen(3001, () => {
-    console.log("running server");
-});
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(session({
+        key: "userId",
+        secret: "secretkey",
+        resave: true,
+        saveUninitialized: false,
+        cookie: {
+            maxAge: 60 * 60 * 24,
+            expires: 60 * 60 * 24,
+        },
+    })
+);
+app.use(router);
+db.sync({alter: true, force: true}).then(result => {
+    app.listen(3001, () => {console.log("running server");});
+}).catch(err => {
+    console.log(err);
+})
