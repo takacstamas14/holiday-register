@@ -10,7 +10,7 @@ const router = express.Router();
 * User Routes
 */
 router.get("/",(req, res) => {
-    res.json({msg:"ok"});
+    res.status(200).json({"msg":"ok"});
 })
 router.post("/api/login",login);
 /*router.get("/api/logout",verifySession,logout);
