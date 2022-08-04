@@ -1,5 +1,6 @@
 import { Sequelize } from "sequelize";
 import User from "../models/User.js";
+import Holiday from "../models/Holiday.js";
 import bcrypt from "bcrypt";
 import session from "express-session";
 

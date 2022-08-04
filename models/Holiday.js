@@ -1,6 +1,5 @@
 import {DataTypes, Sequelize} from "sequelize";
 import db from "../config/index.js";
-import User from "./User.js";
 const Holiday = db.define('holidays',{
     id: {
         type: DataTypes.INTEGER,
