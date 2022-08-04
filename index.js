@@ -1,7 +1,4 @@
 import express from 'express';
-//import User from './models/User.js';
-//import Holiday from './models/Holiday.js';
-
 import db from './config/index.js';
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";

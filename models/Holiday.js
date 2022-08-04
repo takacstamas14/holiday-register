@@ -15,7 +15,7 @@ const Holiday = db.define('holidays',{
     }
 });
 
-User.belongsToMany(Holiday,{through: {model: Holiday,unique: false}})
-Holiday.belongsToMany(User,{through: {model: User,unique: false}})
+//User.belongsToMany(Holiday,{through: {model: Holiday,unique: false}})
+//Holiday.belongsToMany(User,{through: {model: User,unique: false}})
 
 export default Holiday;
