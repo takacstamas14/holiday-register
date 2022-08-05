@@ -5,9 +5,16 @@ import cookieParser from "cookie-parser";
 import session from "express-session";
 import router from "./routes/index.js";
 import * as path from "path";
+import cors from "cors";
 const app = express()
 
+const corsOptions = {
+    optionsSuccessStatus: 200,
+    credentials: true,
+}
 app.use(express.json());
+app.use(cors(corsOptions))
+
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({
@@ -15,10 +22,11 @@ app.use(session({
         secret: "secretkey",
         resave: true,
         saveUninitialized: false,
-        httpOnly: true,
+        httpOnly: false,
         cookie: {
             maxAge: 60 * 60 * 24,
             expires: 60 * 60 * 24,
+            secure: true
         },
 
     })
