@@ -20,6 +20,7 @@ export const login = async(req,res) => {
             return res.status(401).json({msg: "Wrong username or password"});
         }
         req.session.userId = user[0].id;
+        req.session.role = user[0].role;
         return res.status(200).json({msg: "You are now logged in."});
 
     } catch (err) {
@@ -31,4 +32,15 @@ export const login = async(req,res) => {
 export const logout = async(req,res) => {
     req.session.destroy();
     res.status(200).json({"msg": "Logged out."})
+};
+
+export const addAdmin = async(req,res) => {
+    const password = bcrypt.hash("user123",10,async (err,hash) => {
+        await User.create({
+            "fullName": "Takács Tamás"
+            "emailAddress": "takacst7200@gmail.com",
+            "password": hash,
+            "role": "admin"
+        });
+    });
 };
