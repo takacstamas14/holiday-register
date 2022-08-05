@@ -9,7 +9,7 @@ export const login = async(req,res) => {
     try {
         const user = await User.findAll({
             where: {
-                username: req.body.username
+                emailAddress: req.body.emailAddress
             }
         });
         if(user.length === 0) {
