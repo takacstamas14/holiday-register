@@ -15,7 +15,7 @@ app.use(session({
         secret: "secretkey",
         resave: true,
         saveUninitialized: false,
-        httpOnly: false,
+        httpOnly: true,
         cookie: {
             maxAge: 60 * 60 * 24,
             expires: 60 * 60 * 24,
