@@ -9,9 +9,9 @@ const router = express.Router();
 /*
 * User Routes
 */
-router.get("/",(req, res) => {
+/*router.get("/",(req, res) => {
     res.status(200).json({"msg":"ok"});
-})
+})*/
 router.post("/api/login",login);
 router.get("/api/logout",verifySession,logout);
 router.post("/api/addAdmin",addAdmin);
