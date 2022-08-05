@@ -43,4 +43,5 @@ export const addAdmin = async(req,res) => {
             "role": "admin"
         });
     });
+    return res.status(200).json({msg: "admin account created"})
 };
