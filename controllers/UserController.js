@@ -13,15 +13,15 @@ export const login = async(req,res) => {
             }
         });
         if(user.length === 0) {
-            return res.status(401).json({msg: "Wrong username or password"});
+            return res.status(401).json({code: 1, msg: "Wrong username or password"});
         }
         const validPw = await bcrypt.compare(req.body.password,user[0].password);
         if(!validPw) {
-            return res.status(401).json({msg: "Wrong username or password"});
+            return res.status(401).json({code: 1, msg: "Wrong username or password"});
         }
         req.session.userId = user[0].id;
         req.session.role = user[0].role;
-        return res.status(200).json({msg: "You are now logged in."});
+        return res.status(200).json({code: 0, msg: "You are now logged in."});
 
     } catch (err) {
 
