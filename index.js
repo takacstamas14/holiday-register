@@ -19,8 +19,7 @@ app.use(session({
         saveUninitialized: false,
         cookie: {
             maxAge: 60 * 60 * 24,
-            expires: 60 * 60 * 24,
-            secure: true
+            expires: 60 * 60 * 24
         },
 
     })
