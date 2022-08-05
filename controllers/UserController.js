@@ -37,7 +37,7 @@ export const logout = async(req,res) => {
 export const addAdmin = async(req,res) => {
     const password = bcrypt.hash("user123",10,async (err,hash) => {
         await User.create({
-            "fullName": "Takács Tamás"
+            "fullName": "Takács Tamás",
             "emailAddress": "takacst7200@gmail.com",
             "password": hash,
             "role": "admin"
