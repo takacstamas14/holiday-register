@@ -8,13 +8,8 @@ import * as path from "path";
 import cors from "cors";
 const app = express()
 
-const corsOptions = {
-    optionsSuccessStatus: 200,
-    credentials: true,
-}
-app.use(express.json());
-app.use(cors(corsOptions))
 
+app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({
