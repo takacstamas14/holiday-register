@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({
-        key: "login",
+        key: "userId",
         secret: "secretkey",
         resave: true,
         saveUninitialized: false,
