@@ -26,7 +26,8 @@ app.use(session({
     })
 );
 app.use(router);
-app.use(express.static("public/build"));
+const pub = path.join(__dirname, 'public/build');
+app.use(express.static(pub));
 db.sync({alter: true, force: true}).then(result => {
     app.listen(process.env.PORT || 5000);
     //app.listen(3001, () => {console.log("running server");});
