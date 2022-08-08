@@ -1,5 +1,5 @@
 import express from "express";
-import {login,logout,addAdmin} from "../controllers/UserController.js";/*
+import {login,logout,addAdmin,userinfo} from "../controllers/UserController.js";/*
 import {getRooms} from "../controllers/RoomController.js";
 import {bookRoom,getBookings,removeBooking} from "../controllers/BookController.js";*/
 import {verifySession} from "../helper/index.js";
@@ -13,6 +13,7 @@ const router = express.Router();
     res.status(200).json({"msg":"ok"});
 })*/
 router.post("/api/login",login);
+router.get("/api/userInfo",verifySession,userinfo);
 router.get("/api/logout",verifySession,logout);
 router.post("/api/addAdmin",addAdmin);
 /*router.get("/api/user");

@@ -45,3 +45,12 @@ export const addAdmin = async(req,res) => {
     });
     return res.status(200).json({msg: "admin account created"})
 };
+
+export const userinfo = async (req,res) => {
+    const user = await User.findAll({
+        where: {
+            id: req.session.userId
+        }
+    });
+    return res.status(200).json({user: user});
+}
