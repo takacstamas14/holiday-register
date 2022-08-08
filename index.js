@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import session from "express-session";
 import router from "./routes/index.js";
 import * as path from "path";
+import {fileURLToPath} from 'url';
 import cors from "cors";
 const app = express()
 
@@ -26,6 +27,9 @@ app.use(session({
     })
 );
 app.use(router);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const pub = path.join(__dirname, 'public/build');
 app.use(express.static(pub));
 db.sync({alter: true, force: true}).then(result => {
