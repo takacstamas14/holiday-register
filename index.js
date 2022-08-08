@@ -32,7 +32,7 @@ const __dirname = path.dirname(__filename);
 
 const pub = path.join(__dirname, 'public','build','index.html');
 console.log(pub);
-app.use(express.static(pub));
+app.use('/',express.static(pub));
 db.sync({alter: true, force: true}).then(result => {
     app.listen(process.env.PORT || 5000);
     //app.listen(3001, () => {console.log("running server");});
