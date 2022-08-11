@@ -18,7 +18,7 @@ router.get("/api/userInfo",verifySession,userinfo);
 router.get("/api/logout",verifySession,logout);
 router.post("/api/addAdmin",addAdmin);
 router.post("/api/saveDate",verifySession,saveDate);
-router.post("/api/getRegistered",verifySession,getRegistered);
+router.get("/api/getRegistered",verifySession,getRegistered);
 /*router.get("/api/user");
 router.get("/api/users");
 router.post("/api/user");
