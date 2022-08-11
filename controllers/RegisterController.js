@@ -35,7 +35,7 @@ export const getRegistered = async (req,res) => {
         const arr = JSON.parse(registeredString);
         arr.forEach( obj => renameKey( obj, 'startDate', 'start' ) );
         arr.forEach( obj => renameKey( obj, 'endDate', 'end' ) );
-        const updatedJson = JSON.parse( arr );
+        const updatedJson = arr;
 
         res.status(200).json({data: updatedJson});
     } catch (e) {
