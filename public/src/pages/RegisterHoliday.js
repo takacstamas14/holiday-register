@@ -13,16 +13,16 @@ export default function RegisterHoliday() {
     const [endDate,setEndDate] = React.useState([null,null])
     const selectDates = async (param) => {
         console.log(param);
-        setStartDate(param.startStr);
-        setEndDate(param.endStr);
+        setStartDate(param.start);
+        setEndDate(param.end);
 
     }
     const sendDates = async () => {
         if(startDate !== null && endDate !== null)
         {
             axios.post("/api/saveDate",{
-                startDate: startDate,
-                endDate: endDate
+                startDate: startDate.toISOString(),
+                endDate: endDate.toISOString()
             },{withCredentials: true}).then((response)=> {alert(response.msg)});
         }
     }

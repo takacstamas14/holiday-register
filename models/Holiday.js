@@ -7,10 +7,10 @@ const Holiday = db.define('holidays',{
         primaryKey: true
     },
     startDate: {
-        type: DataTypes.DATEONLY
+        type: DataTypes.DATE
     },
     endDate: {
-        type: DataTypes.DATEONLY
+        type: DataTypes.DATE
     },
     userId: {
         type: DataTypes.INTEGER
