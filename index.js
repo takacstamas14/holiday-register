@@ -33,6 +33,7 @@ const __dirname = path.dirname(__filename);
 const pub = path.join(__dirname, 'public','build');
 console.log(pub);
 app.use(express.static(pub));
+app.get('*', (req, res) => res.sendFile(path.resolve('public', 'build', 'index.html')));
 db.sync({alter: true, force: true}).then(result => {
     console.log("Teszt");    
     app.listen(process.env.PORT || 5000);
