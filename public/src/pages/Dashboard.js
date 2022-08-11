@@ -19,11 +19,14 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { mainListItems, secondaryListItems } from '../component/listItems';
 import Home from "./Home";
+import Login from "./Login";
 import {useCookies} from "react-cookie";
-import {useEffect} from "react";
-import {Routes} from "react-router-dom";
-import {Route} from "@mui/icons-material";
+import {useEffect, useState} from "react";
+//import {Route} from "@mui/icons-material";
+import {Routes, Route, Link as link, Navigate} from "react-router-dom";
+
 import RegisterHoliday from "./RegisterHoliday";
+import Cookies from "js-cookie";
 
 function Copyright(props) {
     return (
@@ -88,6 +91,16 @@ const mdTheme = createTheme();
 
 function DashboardContent() {
     const [open, setOpen] = React.useState(true);
+    const [cookies, setCookie] = useCookies();
+    const [userId, setUserId] = useState(null);
+
+    useEffect(() => {
+        console.log("befutott");
+        console.log(cookies);
+
+        setUserId(Cookies.get('userId'));
+    });
+
     //const [cookies, setCookie] = useCookies();
 
     const toggleDrawer = () => {
@@ -106,7 +119,10 @@ function DashboardContent() {
 
 
     return (
-        <ThemeProvider theme={mdTheme}>
+        <>
+            {!cookies.userId && (<Navigate to="/login" replace={true} />)}
+
+            <ThemeProvider theme={mdTheme}>
             <Box sx={{ display: 'flex' }}>
                 <CssBaseline />
                 <AppBar position="absolute" open={open}>
@@ -192,9 +208,17 @@ function DashboardContent() {
                 </Box>
             </Box>
         </ThemeProvider>
+    </>
     );
 }
 
 export default function Dashboard() {
-    return <DashboardContent />;
+
+    return (
+        <>
+            <Routes>
+                <Route path="/login" element={<Login/>} />
+                <Route path="/*" element={<DashboardContent />} />
+            </Routes>
+        </>);
 }

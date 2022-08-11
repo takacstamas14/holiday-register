@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import App from './pages/Dashboard';
 import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 import { CookiesProvider } from "react-cookie";
@@ -10,11 +10,11 @@ import { CookiesProvider } from "react-cookie";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-      <CookiesProvider>
-          <BrowserRouter>
-          <App />
-          </BrowserRouter>
-      </CookiesProvider>
+      <BrowserRouter>
+          <CookiesProvider>
+              <App />
+          </CookiesProvider>
+      </BrowserRouter>
   </React.StrictMode>
 );
 

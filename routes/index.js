@@ -3,6 +3,7 @@ import {login,logout,addAdmin,userinfo} from "../controllers/UserController.js";
 import {getRooms} from "../controllers/RoomController.js";
 import {bookRoom,getBookings,removeBooking} from "../controllers/BookController.js";*/
 import {verifySession} from "../helper/index.js";
+import {saveDate} from "../controllers/RegisterController";
 
 const router = express.Router();
 
@@ -16,6 +17,7 @@ router.post("/api/login",login);
 router.get("/api/userInfo",verifySession,userinfo);
 router.get("/api/logout",verifySession,logout);
 router.post("/api/addAdmin",addAdmin);
+router.post("/api/saveDate",verifySession,saveDate);
 /*router.get("/api/user");
 router.get("/api/users");
 router.post("/api/user");
