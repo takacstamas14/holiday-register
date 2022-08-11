@@ -1,5 +1,5 @@
 import Holiday from "../models/Holiday.js";
-import User from "../models/User";
+import User from "../models/User.js";
 
 export const saveDate = async (req,res) => {
 
