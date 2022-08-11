@@ -21,6 +21,9 @@ import { mainListItems, secondaryListItems } from '../component/listItems';
 import Home from "./Home";
 import {useCookies} from "react-cookie";
 import {useEffect} from "react";
+import {Routes} from "react-router-dom";
+import {Route} from "@mui/icons-material";
+import RegisterHoliday from "./RegisterHoliday";
 
 function Copyright(props) {
     return (
@@ -177,7 +180,11 @@ function DashboardContent() {
                         <Grid container spacing={3}>
                             <Grid item xs={12}>
                                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                                    <Home />
+                                    <Routes>
+                                        <Route path="/" element={<Home />} />
+                                        <Route path="registerHoliday" element={<RegisterHoliday />} />
+                                    </Routes>
+                                    <!--<Home />-->
                                 </Paper>
                             </Grid>
                         </Grid>
