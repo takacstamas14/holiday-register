@@ -13,7 +13,7 @@ export default function Home() {
                 console.log(res.data);
                 setData(res.data);
             })
-    },[]);
+    });
 
     return (
         <>
@@ -23,7 +23,7 @@ export default function Home() {
         locale={hu}
         eventSources={[
             {
-                events: data,
+                events: Object.keys(data).map((key) => [Number(key), data[key]]),
                 color: 'black',
                 textColor: 'yellow'
             }
