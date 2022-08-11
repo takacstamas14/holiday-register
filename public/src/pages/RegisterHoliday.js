@@ -21,9 +21,9 @@ export default function RegisterHoliday() {
         if(startDate !== null && endDate !== null)
         {
             axios.post("/api/saveDate",{
-                startDate: startDate.toISOString(),
-                endDate: endDate.toISOString()
-            },{withCredentials: true}).then((response)=> {alert(response.msg)});
+                startDate: startDate.toISOString().split('.')[0],
+                endDate: endDate.toISOString().split('.')[0]
+            },{withCredentials: true}).then((response)=> {console.log(response)});
         }
     }
     return (
