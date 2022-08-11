@@ -30,7 +30,9 @@ export const getRegistered = async (req,res) => {
     }
 
     try {
-        const registered = await Holiday.findAll();
+        const registered = await Holiday.findAll({
+            attributes: ['startDate', 'endDate']
+        });
         const registeredString = JSON.stringify(registered);
         const arr = JSON.parse(registeredString);
         arr.forEach( obj => renameKey( obj, 'startDate', 'start' ) );
