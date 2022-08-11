@@ -197,7 +197,7 @@ function DashboardContent() {
                             <Grid item xs={12}>
                                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
                                     <Routes>
-                                        <Route path="/" element={<Home />} />
+                                        <Route exact path="/" element={<Home />} />
                                         <Route path="registerHoliday" element={<RegisterHoliday />} />
                                     </Routes>
                                 </Paper>
@@ -218,7 +218,7 @@ export default function Dashboard() {
         <>
             <Routes>
                 <Route path="/login" element={<Login/>} />
-                <Route path="/*" element={<DashboardContent />} />
+                <Route exact element={<DashboardContent />} />
             </Routes>
         </>);
 }
