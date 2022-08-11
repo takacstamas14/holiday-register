@@ -36,6 +36,7 @@ export const getRegistered = async (req,res) => {
                 id: req.session.userId
             }
         });
+        console.log(user);
         const registeredString = JSON.stringify(registered);
         const arr = JSON.parse(registeredString);
         arr.forEach( obj => renameKey( obj, 'startDate', 'start' ) );
