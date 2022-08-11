@@ -23,7 +23,7 @@ import Login from "./Login";
 import {useCookies} from "react-cookie";
 import {useEffect, useState} from "react";
 //import {Route} from "@mui/icons-material";
-import {Routes, Route, Link as link, Navigate} from "react-router-dom";
+import {Routes, Route, Navigate} from "react-router-dom";
 
 import RegisterHoliday from "./RegisterHoliday";
 import Cookies from "js-cookie";
@@ -198,7 +198,7 @@ function DashboardContent() {
                                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
                                     <Routes>
                                         <Route exact path="/" element={<Home />} />
-                                        <Route path="registerHoliday" element={<RegisterHoliday />} />
+                                        <Route path="/registerHoliday" element={<RegisterHoliday />} />
                                     </Routes>
                                 </Paper>
                             </Grid>
