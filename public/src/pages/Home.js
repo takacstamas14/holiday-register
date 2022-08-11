@@ -13,7 +13,7 @@ export default function Home() {
                 console.log(res.data);
                 setData(res.data);
             })
-    });
+    },[data]);
 
     return (
         <>
