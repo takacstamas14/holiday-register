@@ -21,7 +21,15 @@ export default function Home() {
         plugins={[dayGridPlugin]}
         initialView="dayGridMonth"
         locale={hu}
-        events={[data]}
+        eventSources={[
+            {
+                events: data,
+                color: 'black',
+                textColor: 'yellow'
+            }
+        ]
+        }
+
     />
         </>
     )
