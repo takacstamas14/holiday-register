@@ -31,10 +31,13 @@ export const getRegistered = async (req,res) => {
 
     try {
         const registered = await Holiday.findAll();
-        registered.forEach( obj => renameKey( obj, 'startDate', 'start' ) );
-        registered.forEach( obj => renameKey( obj, 'endDate', 'end' ) );
+        const registeredString = JSON.stringify(registered);
+        const arr = JSON.parse(registeredString);
+        arr.forEach( obj => renameKey( obj, 'startDate', 'start' ) );
+        arr.forEach( obj => renameKey( obj, 'endDate', 'end' ) );
+        const updatedJson = JSON.stringify( arr );
 
-        res.status(200).json({data: registered});
+        res.status(200).json({data: updatedJson});
     } catch (e) {
         res.status(500).json({msg: e});
 
