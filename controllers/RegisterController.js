@@ -1,7 +1,4 @@
-import { Sequelize } from "sequelize";
-import User from "../models/User.js";
 import Holiday from "../models/Holiday.js";
-import session from "express-session";
 
 export const saveDate = async (req,res) => {
 
@@ -38,9 +35,7 @@ export const getRegistered = async (req,res) => {
         arr.forEach( obj => renameKey( obj, 'startDate', 'start' ) );
         arr.forEach( obj => renameKey( obj, 'endDate', 'end' ) );
         arr.forEach( obj => obj.title = "Teszt");
-        const updatedJson = arr;
-
-        res.status(200).json({data: updatedJson});
+        res.status(200).json({data: JSON.stringify(arr)});
     } catch (e) {
         res.status(500).json({msg: e});
 
