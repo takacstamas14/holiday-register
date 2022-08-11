@@ -213,12 +213,26 @@ function DashboardContent() {
 }
 
 export default function Dashboard() {
+    const [cookies, setCookie] = useCookies();
+    const [userId, setUserId] = useState(null);
 
-    return (
-        <>
-            <Routes>
-                <Route path="/login" element={<Login/>} />
-                <Route exact element={<DashboardContent />} />
-            </Routes>
-        </>);
+    useEffect(() => {
+        console.log("befutott");
+        console.log(cookies);
+
+        setUserId(Cookies.get('userId'));
+    });
+
+    if(!cookies.userId) {
+        return (
+            <>
+                <Login />
+            </>);
+    } else {
+        return (
+            <>
+                <DashboardContent />
+            </>
+        )
+    }
 }
