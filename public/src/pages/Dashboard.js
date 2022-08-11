@@ -184,7 +184,6 @@ function DashboardContent() {
                                         <Route path="/" element={<Home />} />
                                         <Route path="registerHoliday" element={<RegisterHoliday />} />
                                     </Routes>
-                                    <!--<Home />-->
                                 </Paper>
                             </Grid>
                         </Grid>
