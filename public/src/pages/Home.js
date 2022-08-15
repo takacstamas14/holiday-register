@@ -12,7 +12,7 @@ export default function Home() {
             .then((res) => {
                 console.log(res.data);
                 setData(res.data);
-            })
+            });
     },[]);
 
     return (
@@ -25,7 +25,7 @@ export default function Home() {
             {
                 //events: Object.keys(data).map((key) => [Number(key), data[key]]),
                 events: () => {
-                    data.map((x) => { return {title: x.title, start: x.start, end: x.end}})
+                    data.map((x) => {console.log(x); return {title: x.title, start: x.start, end: x.end}})
                 },
                 color: 'black',
                 textColor: 'yellow'
