@@ -11,13 +11,12 @@ const [data,setData] = useState(null);
 const [rows,setRows] = useState([]);
 const getDataFromAPI = () => {
     axios.get("/api/getRegistered",{withCredentials:true}).then((response)=>{
-        console.log(response.data);
-        return response.data;
+        setRows(response.data);
     })
 }
 useEffect(() => {
-    setData(getDataFromAPI);
-    setRows(getDataFromAPI)
+    getDataFromAPI();
+
 });
 
     return (<>
