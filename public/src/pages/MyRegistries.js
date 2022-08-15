@@ -8,7 +8,7 @@ import Paper from "@mui/material/Paper";
 
 export default function MyRegistries() {
 const [data,setData] = useState(null);
-let rows = [];
+const [rows,setRows] = useState([]);
 const getDataFromAPI = () => {
     axios.get("/api/getRegistered",{withCredentials:true}).then((response)=>{
         console.log(response.data);
@@ -17,7 +17,7 @@ const getDataFromAPI = () => {
 }
 useEffect(() => {
     setData(getDataFromAPI);
-    rows = [data];
+    setRows(getDataFromAPI)
 });
 
     return (<>
