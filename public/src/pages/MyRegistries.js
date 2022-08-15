@@ -9,14 +9,12 @@ import Paper from "@mui/material/Paper";
 export default function MyRegistries() {
 const [data,setData] = useState(null);
 const [rows,setRows] = useState([]);
-const getDataFromAPI = () => {
-    axios.get("/api/getRegistered",{withCredentials:true}).then((response)=>{
-        setRows(response.data);
-    })
-}
-useEffect(() => {
-    getDataFromAPI();
 
+useEffect(() => {
+    axios.get("/api/getRegistered",{withCredentials:true})
+        .then((response) => {
+        setRows(response.data);
+    });
 },[]);
 
     return (
