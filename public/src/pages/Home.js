@@ -7,13 +7,13 @@ import {useEffect, useState} from "react";
 export default function Home() {
     const [data,setData] = useState([]);
 
-    /*useEffect(() => {
+    useEffect(() => {
         axios.get("/api/getRegistered",{withCredentials:true})
             .then((res) => {
                 console.log(res.data);
                 setData(res.data);
             })
-    },[]);*/
+    },[]);
 
     return (
         <>
@@ -24,23 +24,8 @@ export default function Home() {
         eventSources={[
             {
                 //events: Object.keys(data).map((key) => [Number(key), data[key]]),
-                events: function(info, successCallback, failureCallback) {
-                    axios.get("/api/getRegistered",{withCredentials:true})
-                        .then((res) =>
-                        {
-                            console.log(res.data);
-                            setData(res.data);
-                            successCallback(
-                                res.data.map(function(eventEl) {
-                                    return {
-                                        title: eventEl.title,
-                                        start: eventEl.start,
-                                        end: eventEl.end
-                                    }
-                                })
-                            )
-
-                        })
+                events: () => {
+                    data.map((x) => { return {title: x.title, start: x.start, end: x.end}})
                 },
                 color: 'black',
                 textColor: 'yellow'
