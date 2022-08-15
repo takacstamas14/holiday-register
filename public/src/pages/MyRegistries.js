@@ -8,7 +8,7 @@ import Paper from "@mui/material/Paper";
 
 export default function MyRegistries() {
 const [data,setData] = useState(null);
-let rows = null;
+let rows = [];
 const getDataFromAPI = () => {
     axios.get("/api/getRegistered",{withCredentials:true}).then((response)=>{
         console.log(response.data);
