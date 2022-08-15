@@ -4,13 +4,13 @@ import axios from "axios";
 
 
 export default function MyRegistries() {
-const [data,setData] = useState({});
+const [data,setData] = useState(null);
 
 const getDataFromAPI = () => {
 
-    axios.get("/api/getRegistere/",{withCredentials:true}).then((response)=>{
+    axios.get("/api/getRegistered",{withCredentials:true}).then((response)=>{
         console.log(response.data);
-        return {data: "1"};
+        return response.data;
     })
 
 }
@@ -21,7 +21,7 @@ useEffect(() => {
 });
 
     return (<>
-        {data}
+        <h1>1</h1>
     </>);
 
 
