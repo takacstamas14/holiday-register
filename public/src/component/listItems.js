@@ -27,7 +27,7 @@ export const mainListItems = (
             </ListItemIcon>
             <ListItemText primary="Szabadság bejegyzés" />
         </ListItemButton>
-        <ListItemButton>
+        <ListItemButton href="/myRegistries">
             <ListItemIcon>
                 <EventAvailable />
             </ListItemIcon>

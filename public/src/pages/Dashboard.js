@@ -27,6 +27,7 @@ import {Routes, Route, Navigate} from "react-router-dom";
 
 import RegisterHoliday from "./RegisterHoliday";
 import Cookies from "js-cookie";
+import MyRegistries from "./MyRegistries";
 
 function Copyright(props) {
     return (
@@ -199,6 +200,7 @@ function DashboardContent() {
                                     <Routes>
                                         <Route exact path="/" element={<Home />} />
                                         <Route path="/registerHoliday" element={<RegisterHoliday />} />
+                                        <Route path="/myRegistries" element={<MyRegistries />} />
                                     </Routes>
                                 </Paper>
                             </Grid>

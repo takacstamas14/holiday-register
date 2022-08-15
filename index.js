@@ -20,8 +20,8 @@ app.use(session({
         saveUninitialized: false,
         cookie: {
             httpOnly: false,
-            maxAge: 60 * 60 * 24,
-            expires: 60 * 60 * 24
+            maxAge: 60 * 60 * 24 * 1000,
+            expires: 60 * 60 * 24 * 1000
         },
 
     })
