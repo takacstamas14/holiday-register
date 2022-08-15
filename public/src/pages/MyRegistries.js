@@ -17,9 +17,10 @@ const getDataFromAPI = () => {
 useEffect(() => {
     getDataFromAPI();
 
-});
+},[]);
 
-    return (<>
+    return (
+        <>
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
                 <TableHead>
@@ -45,7 +46,8 @@ useEffect(() => {
                 </TableBody>
             </Table>
         </TableContainer>
-    </>);
+    </>
+    );
 
 
 }
