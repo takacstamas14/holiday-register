@@ -29,7 +29,7 @@ export const getRegistered = async (req,res) => {
 
     try {
         const registered = await Holiday.findAll({
-            attributes: ['startDate', 'endDate']
+            attributes: ['id','startDate', 'endDate']
         });
         const user = await User.findAll({
             where: {

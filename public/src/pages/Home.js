@@ -19,9 +19,10 @@ export default function Home() {
         <>
     <FullCalendar
         plugins={[dayGridPlugin]}
+
         initialView="dayGridMonth"
         locale={hu}
-        initialEvents={data}
+        initialEvents={()=>{data.map((x)=>{console.log(x); return {id:x.id,start:x.start,end:x.end,title: x.title}})}}
 
     />
         </>
