@@ -5,7 +5,7 @@ import axios from "axios";
 import {useEffect, useState} from "react";
 
 export default function Home() {
-    const [data,setData] = useState({});
+    const [data,setData] = useState([]);
 
     useEffect(() => {
         axios.get("/api/getRegistered",{withCredentials:true})
@@ -23,7 +23,25 @@ export default function Home() {
         locale={hu}
         eventSources={[
             {
-                events: Object.keys(data).map((key) => [Number(key), data[key]]),
+                //events: Object.keys(data).map((key) => [Number(key), data[key]]),
+                events: function(info, successCallback, failureCallback) {
+                    axios.get("/api/getRegistered",{withCredentials:true})
+                        .then((res) =>
+                        {
+                            console.log(res.data);
+                            setData(res.data);
+                            successCallback(
+                                res.data.map(function(eventEl) {
+                                    return {
+                                        title: eventEl.title,
+                                        start: eventEl.start,
+                                        end: eventEl.end
+                                    }
+                                })
+                            )
+
+                        })
+                },
                 color: 'black',
                 textColor: 'yellow'
             }
