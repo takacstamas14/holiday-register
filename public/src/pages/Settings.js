@@ -21,7 +21,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import {
     AccountCircle,
     AccountCircleTwoTone,
-    ChevronRight,
+    ChevronRight, EmailTwoTone,
     EventAvailableTwoTone,
     EventBusyTwoTone,
     EventNoteTwoTone
@@ -54,8 +54,8 @@ export default function Home() {
     return (
         <>
             <Box sx={{ '& > :not(style)': { m: 1 } }}>
-                <FormControl variant="standard">
-                    <InputLabel htmlFor="input-with-icon-adornment">
+                <FormControl variant="standard" fullWidth={true}>
+                    <InputLabel htmlFor="fullName">
                         Teljes név
                     </InputLabel>
                     <Input
@@ -65,7 +65,22 @@ export default function Home() {
                                 <AccountCircle />
                             </InputAdornment>
                         }
-                        defaultValue={data.fullName}
+                        value={data.fullName}
+                    />
+                </FormControl>
+                <FormControl variant="standard" fullWidth={true}>
+                    <InputLabel htmlFor="emailAddress">
+                        E-mail cím
+                    </InputLabel>
+                    <Input
+                        id="emailAddress"
+                        type="email"
+                        startAdornment={
+                            <InputAdornment position="start">
+                                <EmailTwoTone />
+                            </InputAdornment>
+                        }
+                        value={data.emailAddress}
                     />
                 </FormControl>
             </Box>
