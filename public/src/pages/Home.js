@@ -17,11 +17,12 @@ export default function Home() {
     const [data,setData] = useState([]);
     const [open, setOpen] = React.useState(false);
     const [openedData,setOpenedData] = useState([]);
+    const [openedUser,setOpenedUser] = useState([]);
 
     useEffect(() => {
         axios.get("/api/getRegistered",{withCredentials:true})
             .then((res) => {
-                console.log(res.data);
+                //console.log(res.data);
                 setData(res.data);
             });
     },[]);
@@ -37,6 +38,8 @@ export default function Home() {
     const handleEventClick = (info) => {
         console.log(info.event);
         setOpenedData(info.event);
+        setOpenedUser(info.event.extendedProps.user);
+        console.log(openedUser);
         handleClickOpen();
     }
 
@@ -72,19 +75,19 @@ export default function Home() {
                             <ListItemIcon>
                                 <ChevronRight />
                             </ListItemIcon>
-                            <ListItemText primary={openedData.title} />
+                            <ListItemText primary={"Ok: " + openedData.title} />
                         </ListItem>
                         <ListItem>
                             <ListItemIcon>
                                 <EventAvailableTwoTone />
                             </ListItemIcon>
-                            <ListItemText primary={()=>{formatDate(openedData.start)}} />
+                            <ListItemText primary={"Kezdődátum:" + openedData.startStr} />
                         </ListItem>
                         <ListItem>
                             <ListItemIcon>
                                 <EventBusyTwoTone />
                             </ListItemIcon>
-                            <ListItemText primary={()=>{formatDate(openedData.end)}} />
+                            <ListItemText primary={"Végdátum: " + openedData.endStr} />
                         </ListItem>
                     </List>
                 </DialogContent>
