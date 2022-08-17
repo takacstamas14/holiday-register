@@ -33,13 +33,17 @@ import {DataGrid, huHU} from "@mui/x-data-grid";
 export default function Home() {
     const [data,setData] = useState([]);
     const [open, setOpen] = React.useState(false);
-    const [openedData,setOpenedData] = useState([]);
 
     useEffect(() => {
         axios.get("/api/getAllUsers",{withCredentials:true})
             .then((res) => {
                 console.log(res.data)
-                setData(res.data);
+                let arr = [];
+                res.data.forEach(
+                    obj => {arr.push(obj)}
+                );
+                console.log(arr);
+                setData(arr);
             });
     },[]);
 
