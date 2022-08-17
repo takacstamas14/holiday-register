@@ -10,7 +10,13 @@ import * as React from "react";
 import Typography from "@mui/material/Typography";
 import List from "@mui/material/List";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import {ChevronRight, EventAvailableTwoTone, EventBusyTwoTone} from "@mui/icons-material";
+import {
+    AccountCircleTwoTone,
+    ChevronRight,
+    EventAvailableTwoTone,
+    EventBusyTwoTone,
+    EventNoteTwoTone
+} from "@mui/icons-material";
 import ListItemText from "@mui/material/ListItemText";
 
 export default function Home() {
@@ -41,6 +47,7 @@ export default function Home() {
         obj = info.event;
         obj.startString = formatDate(obj.start);
         obj.endString = formatDate(obj.end);
+        obj.fullName = obj.extendedProps.user.fullName;
         console.log(obj);
         setOpenedData(obj);
         setOpenedUser(obj.extendedProps);
@@ -78,7 +85,13 @@ export default function Home() {
                     <List>
                         <ListItem>
                             <ListItemIcon>
-                                <ChevronRight />
+                                <AccountCircleTwoTone />
+                            </ListItemIcon>
+                            <ListItemText primary={"Felhasználó: " + openedData.endString} />
+                        </ListItem>
+                        <ListItem>
+                            <ListItemIcon>
+                                <EventNoteTwoTone />
                             </ListItemIcon>
                             <ListItemText primary={"Ok: " + openedData.title} />
                         </ListItem>
@@ -86,13 +99,13 @@ export default function Home() {
                             <ListItemIcon>
                                 <EventAvailableTwoTone />
                             </ListItemIcon>
-                            <ListItemText primary={"Kezdődátum:" + openedData.startStr} />
+                            <ListItemText primary={"Kezdődátum:" + openedData.startString} />
                         </ListItem>
                         <ListItem>
                             <ListItemIcon>
                                 <EventBusyTwoTone />
                             </ListItemIcon>
-                            <ListItemText primary={"Végdátum: " + openedData.endStr} />
+                            <ListItemText primary={"Végdátum: " + openedData.endString} />
                         </ListItem>
                     </List>
                 </DialogContent>
