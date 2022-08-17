@@ -58,24 +58,29 @@ export default function Home() {
         {
             field: 'id',
             headerName: 'ID',
+            resizable: true,
+            minWidth: 150
         },
         {
             field: 'fullName',
             headerName: 'Név',
-
+            minWidth: 150,
             editable: true,
+            resizable: true
         },
         {
             field: 'emailAddress',
             headerName: 'E-mail',
-
+            minWidth: 150,
             editable: true,
+            resizable: true
         },
         {
             field: 'role',
             headerName: 'Jogosultság',
-
+            minWidth: 150,
             editable: true,
+            resizable: true
         },
     ];
 
