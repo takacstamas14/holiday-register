@@ -37,8 +37,10 @@ export default function Home() {
 
     const handleEventClick = (info) => {
         console.log(info.event);
+        info.event.startStr = formatDate(info.event.start);
+        info.event.endStr = formatDate(info.event.end);
         setOpenedData(info.event);
-        setOpenedUser(info.event.extendedProps.user);
+        setOpenedUser(info.event.extendedProps);
         console.log(openedUser);
         handleClickOpen();
     }
