@@ -11,9 +11,7 @@ export default function Home() {
         axios.get("/api/getRegistered",{withCredentials:true})
             .then((res) => {
                 console.log(res.data);
-                const arr = [];
-                arr.push(res.data);
-                setData(arr);
+                setData(res.data);
             });
     },[]);
 

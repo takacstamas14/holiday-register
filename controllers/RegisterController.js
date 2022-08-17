@@ -51,3 +51,36 @@ export const getRegistered = async (req,res) => {
 
     }
 }
+export const getRegisteredByMe = async (req,res) => {
+    function renameKey ( obj, oldKey, newKey ) {
+        obj[newKey] = obj[oldKey];
+        delete obj[oldKey];
+    }
+
+    try {
+        const registered = await Holiday.findAll({
+            attributes: ['id','title','startDate', 'endDate'],
+            where: {
+                "userId": req.session.userId
+            }
+        });
+        const user = await User.findAll({
+            where: {
+                id: req.session.userId
+            }
+        });
+        console.log(user);
+        const registeredString = JSON.stringify(registered);
+        const arr = JSON.parse(registeredString);
+        arr.forEach( obj => renameKey( obj, 'startDate', 'start' ) );
+        arr.forEach( obj => renameKey( obj, 'endDate', 'end' ) );
+        //arr.forEach( obj => obj.title = user[0].fullName);
+        arr.forEach( obj => obj.start = obj.start.split('.')[0]);
+        arr.forEach( obj => obj.end = obj.end.split('.')[0]);
+        return res.status(200).json(arr);
+    } catch (e) {
+        return res.status(500).json({msg: e});
+
+    }
+}
+
