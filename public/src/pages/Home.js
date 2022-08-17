@@ -65,7 +65,7 @@ export default function Home() {
 
     />
             <Dialog open={open} onClose={handleClose}>
-                <DialogTitle>{openedData.extendedProps.user.fullName}</DialogTitle>
+                <DialogTitle>{openedData.title}</DialogTitle>
                 <DialogContent dividers>
                     <List>
                         <ListItem>
