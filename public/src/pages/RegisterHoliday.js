@@ -6,11 +6,17 @@ import hu from '@fullcalendar/core/locales/hu'
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import axios from "axios";
+import {Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle} from "@mui/material";
+import TextField from "@mui/material/TextField";
 
 export default function RegisterHoliday() {
     const [value, setValue] = React.useState([null, null]);
     const [startDate,setStartDate] = React.useState([null,null])
     const [endDate,setEndDate] = React.useState([null,null])
+    const [open, setOpen] = React.useState(false);
+    const [szabadsagOk, setSzabadsagOk] = React.useState();
+
+
     const selectDates = async (param) => {
         console.log(param);
         setStartDate(param.start);
@@ -22,10 +28,20 @@ export default function RegisterHoliday() {
         {
             axios.post("/api/saveDate",{
                 startDate: startDate.toISOString().split('.')[0],
-                endDate: endDate.toISOString().split('.')[0]
+                endDate: endDate.toISOString().split('.')[0],
+                title: szabadsagOk
             },{withCredentials: true}).then((response)=> {console.log(response)});
         }
     }
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
     return (
         <>
             <Typography variant="h5" gutterBottom component="div">
@@ -38,7 +54,32 @@ export default function RegisterHoliday() {
                 selectable="true"
                 select={(e) => selectDates(e)}
             />
-            <Button variant="outlined" onClick={sendDates}>Mentés</Button>
+            <Button variant="outlined" onClick={handleClickOpen}>Mentés</Button>
+
+            <Dialog open={open} onClose={handleClose}>
+                <DialogTitle>Subscribe</DialogTitle>
+                <DialogContent>
+                    <DialogContentText>
+                        kérlek add meg a szabadságod okát az alábbi mezőben
+                    </DialogContentText>
+                    <TextField
+                        autoFocus
+                        margin="dense"
+                        id="ok"
+                        label="Ok"
+                        type="text"
+                        fullWidth
+                        variant="standard"
+                        value={szabadsagOk}
+                        onChange={(e) => {setSzabadsagOk(e.target.value)}}
+                    />
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleClose}>Cancel</Button>
+                    <Button onClick={sendDates}>Mentés</Button>
+                </DialogActions>
+            </Dialog>
+
         </>
     )
 }
