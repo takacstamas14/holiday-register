@@ -29,8 +29,8 @@ export const getRegistered = async (req,res) => {
     }
 
     try {
-        User.belongsToMany(Holiday, { foreignKey: 'userId', through: Holiday });
-        Holiday.belongsToMany(User, { foreignKey: 'userId', through: Holiday });
+        //User.belongsToMany(Holiday, { foreignKey: 'userId', through: Holiday });
+        //Holiday.belongsToMany(User, { foreignKey: 'userId', through: Holiday });
 
         const registered = await Holiday.findAll({
             attributes: ['id','title','startDate', 'endDate'],
