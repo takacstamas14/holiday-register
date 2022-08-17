@@ -36,8 +36,22 @@ export default function Home() {
 
     const handleEventClick = (info) => {
         console.log(info);
-        setOpenedData(info.event);
-        //handleClickOpen();
+        setOpenedData(info.event._instance);
+        handleClickOpen();
+    }
+
+    const formatDate = (date) => {
+        let d = new Date(date),
+            month = '' + (d.getMonth() + 1),
+            day = '' + d.getDate(),
+            year = d.getFullYear();
+
+        if (month.length < 2)
+            month = '0' + month;
+        if (day.length < 2)
+            day = '0' + day;
+
+        return [year, month, day].join('-');
     }
 
     return (
@@ -51,7 +65,7 @@ export default function Home() {
 
     />
             <Dialog open={open} onClose={handleClose}>
-                <DialogTitle>{openedData.fullName}</DialogTitle>
+                <DialogTitle>{openedData.extendedProps.user.fullName}</DialogTitle>
                 <DialogContent dividers>
                     <List>
                         <ListItem>
@@ -64,13 +78,13 @@ export default function Home() {
                             <ListItemIcon>
                                 <EventAvailableTwoTone />
                             </ListItemIcon>
-                            <ListItemText primary={openedData.start} />
+                            <ListItemText primary={()=>{formatDate(openedData.start)}} />
                         </ListItem>
                         <ListItem>
                             <ListItemIcon>
                                 <EventBusyTwoTone />
                             </ListItemIcon>
-                            <ListItemText primary={openedData.end} />
+                            <ListItemText primary={()=>{formatDate(openedData.end)}} />
                         </ListItem>
                     </List>
                 </DialogContent>
