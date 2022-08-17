@@ -58,23 +58,23 @@ export default function Home() {
         {
             field: 'id',
             headerName: 'ID',
-            width: 90 },
+        },
         {
             field: 'fullName',
             headerName: 'Név',
-            width: 150,
+
             editable: true,
         },
         {
             field: 'emailAddress',
             headerName: 'E-mail',
-            width: 150,
+
             editable: true,
         },
         {
             field: 'role',
             headerName: 'Jogosultság',
-            width: 70,
+
             editable: true,
         },
     ];
