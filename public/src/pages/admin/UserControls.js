@@ -55,7 +55,10 @@ export default function Home() {
         setOpen(false);
     };
     const columns = [
-        { field: 'id', headerName: 'ID', width: 90 },
+        {
+            field: 'id',
+            headerName: 'ID',
+            width: 90 },
         {
             field: 'fullName',
             headerName: 'Név',
@@ -78,7 +81,7 @@ export default function Home() {
 
     return (
         <>
-            <Box sx={{ '& > :not(style)': { m: 1 } }}>
+            <Box sx={{ height: 400, width: '100%' }}>
                 <DataGrid
                     localeText={huHU.components.MuiDataGrid.defaultProps.localeText}
                     rows={data}
