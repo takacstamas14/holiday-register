@@ -1,8 +1,8 @@
 import express from "express";
-import {login,logout,addAdmin,userinfo} from "../controllers/UserController.js";/*
+import {login, logout, addAdmin, userinfo, getAllUser, createUser, addUser} from "../controllers/UserController.js";/*
 import {getRooms} from "../controllers/RoomController.js";
 import {bookRoom,getBookings,removeBooking} from "../controllers/BookController.js";*/
-import {verifySession} from "../helper/index.js";
+import {verifyAdminSession, verifySession} from "../helper/index.js";
 import {saveDate, getRegistered, getRegisteredByMe} from "../controllers/RegisterController.js";
 
 const router = express.Router();
@@ -15,8 +15,11 @@ const router = express.Router();
 })*/
 router.post("/api/login",login);
 router.get("/api/userInfo",verifySession,userinfo);
+router.post("/api/createUser",verifyAdminSession,createUser);
+router.get("/api/getAllUsers",verifyAdminSession,getAllUser);
 router.get("/api/logout",verifySession,logout);
 router.post("/api/addAdmin",addAdmin);
+router.post("/api/addUser",addUser);
 router.post("/api/saveDate",verifySession,saveDate);
 router.get("/api/getRegistered",verifySession,getRegistered);
 router.get("/api/getRegisteredByMe",verifySession,getRegisteredByMe);

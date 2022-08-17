@@ -46,11 +46,51 @@ export const addAdmin = async(req,res) => {
     return res.status(200).json({msg: "admin account created"})
 };
 
+export const addUser = async(req,res) => {
+    const password = bcrypt.hash("user123",10,async (err,hash) => {
+        await User.create({
+            "fullName": "Takács Tamás",
+            "emailAddress": "tmstkcs@gmail.com",
+            "password": hash,
+            "role": "user"
+        });
+    });
+    return res.status(200).json({msg: "user account created"})
+};
+
 export const userinfo = async (req,res) => {
     const user = await User.findAll({
         where: {
             id: req.session.userId
         }
     });
-    return res.status(200).json({user: user});
+    return res.status(200).json(user);
+}
+
+export const createUser = async(req,res) => {
+
+    try {
+        const password = bcrypt.hash(req.body.password, 10, async (err, hash) => {
+            await User.create({
+                "fullName": req.body.fullName,
+                "emailAddress": req.body.emailAddress,
+                "password": hash,
+                "role": req.body.role
+            })
+        })
+        return res.status(200).json({code: 1});
+    } catch (e) {
+        return res.status(500).json({msg: e})
+    }
+}
+
+export const getAllUser = async(req,res) => {
+    try {
+        const allUser = await User.findAll({
+            attributes: ['id','fullName','emailAddress','role']
+        });
+        return res.status(200).json(allUser);
+    } catch (e) {
+        return res.status(500).json({msg: e});
+    }
 }

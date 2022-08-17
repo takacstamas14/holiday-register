@@ -28,7 +28,7 @@ export default function Home() {
     useEffect(() => {
         axios.get("/api/getRegistered",{withCredentials:true})
             .then((res) => {
-                //console.log(res.data);
+                //console.log(res.data)
                 setData(res.data);
             });
     },[]);
@@ -80,7 +80,7 @@ export default function Home() {
 
     />
             <Dialog open={open} onClose={handleClose} fullWidth={true} maxWidth={"sm"}>
-                <DialogTitle>{openedData.title}</DialogTitle>
+                <DialogTitle>{openedData} - {openedData.title}</DialogTitle>
                 <DialogContent dividers>
                     <List>
                         <ListItem>

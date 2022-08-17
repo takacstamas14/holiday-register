@@ -28,6 +28,7 @@ import {Routes, Route, Navigate} from "react-router-dom";
 import RegisterHoliday from "./RegisterHoliday";
 import Cookies from "js-cookie";
 import MyRegistries from "./MyRegistries";
+import axios from "axios";
 
 function Copyright(props) {
     return (
@@ -94,6 +95,7 @@ function DashboardContent() {
     const [open, setOpen] = React.useState(true);
     const [cookies, setCookie] = useCookies();
     const [userId, setUserId] = useState(null);
+    const [admin,setAdmin] = useState(false);
 
     useEffect(() => {
         console.log("befutott");
@@ -104,6 +106,16 @@ function DashboardContent() {
 
     //const [cookies, setCookie] = useCookies();
 
+    useEffect(()=>{
+       axios.get("/api/userInfo",{withCredentials:true}).then((result) => {
+           if(result.data.role === "admin")
+           {
+               setAdmin(true);
+           } else {
+               setAdmin(false);
+           }
+       })
+    },[])
     const toggleDrawer = () => {
         setOpen(!open);
         //setCookie("appbar",!open)
@@ -176,8 +188,11 @@ function DashboardContent() {
                     <Divider />
                     <List component="nav">
                         {mainListItems}
-                        <Divider sx={{ my: 1 }} />
-                        {secondaryListItems}
+                        {admin === true &&
+                            <Divider sx={{my: 1}}/> }
+                        {admin === true &&
+                            secondaryListItems
+                        }
                     </List>
                 </Drawer>
                 <Box
