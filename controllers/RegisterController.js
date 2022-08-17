@@ -30,10 +30,14 @@ export const getRegistered = async (req,res) => {
 
     try {
         const registered = await Holiday.findAll({
-            attributes: ['id','title','startDate', 'endDate','userId']
+            attributes: ['id','title','startDate', 'endDate','fullName'],
+            include: [{
+                model: User,
+                required: true
+            }]
         });
 
-        for(let i = 0; i < registered.length; i++)
+        /*for(let i = 0; i < registered.length; i++)
         {
             const user = await User.findAll({
                 where: {
@@ -41,7 +45,7 @@ export const getRegistered = async (req,res) => {
                 }
             });
             registered[i].fullName = user[0].fullName;
-        }
+        }*/
         //console.log(user);
         const registeredString = JSON.stringify(registered);
         const arr = JSON.parse(registeredString);
