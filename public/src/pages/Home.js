@@ -35,8 +35,9 @@ export default function Home() {
     };
 
     const handleEventClick = (info) => {
+        console.log(info);
         setOpenedData(info.event);
-        handleClickOpen();
+        //handleClickOpen();
     }
 
     return (
