@@ -87,25 +87,25 @@ export default function Home() {
                             <ListItemIcon>
                                 <AccountCircleTwoTone />
                             </ListItemIcon>
-                            <ListItemText primary={"Felhasználó: " + openedData.endString} />
+                            <ListItemText primary={"Felhasználó"} secondary={openedData.fullName} />
                         </ListItem>
                         <ListItem>
                             <ListItemIcon>
                                 <EventNoteTwoTone />
                             </ListItemIcon>
-                            <ListItemText primary={"Ok: " + openedData.title} />
+                            <ListItemText primary={"Ok"} secondary={openedData.title} />
                         </ListItem>
                         <ListItem>
                             <ListItemIcon>
                                 <EventAvailableTwoTone />
                             </ListItemIcon>
-                            <ListItemText primary={"Kezdődátum:" + openedData.startString} />
+                            <ListItemText primary={"Kezdődátum"} secondary={openedData.startString} />
                         </ListItem>
                         <ListItem>
                             <ListItemIcon>
                                 <EventBusyTwoTone />
                             </ListItemIcon>
-                            <ListItemText primary={"Végdátum: " + openedData.endString} />
+                            <ListItemText primary={"Végdátum"} secondary={openedData.endString} />
                         </ListItem>
                     </List>
                 </DialogContent>
