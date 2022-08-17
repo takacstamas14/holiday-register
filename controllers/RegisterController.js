@@ -11,9 +11,9 @@ export const saveDate = async (req,res) => {
                 "userId": req.session.userId,
                 "title": req.body.title
             });
-            res.status(200).json({msg: "created"});
+            return res.status(200).json({msg: "created"});
         } else {
-            res.status(500).json({msg: "failed"});
+            return res.status(500).json({msg: "failed"});
         }
 
     } catch (e)
@@ -45,9 +45,9 @@ export const getRegistered = async (req,res) => {
         //arr.forEach( obj => obj.title = user[0].fullName);
         arr.forEach( obj => obj.start = obj.start.split('.')[0]);
         arr.forEach( obj => obj.end = obj.end.split('.')[0]);
-        res.status(200).json(arr);
+        return res.status(200).json(arr);
     } catch (e) {
-        res.status(500).json({msg: e});
+        return res.status(500).json({msg: e});
 
     }
 }
