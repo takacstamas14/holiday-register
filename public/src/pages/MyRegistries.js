@@ -10,7 +10,7 @@ const [data,setData] = useState(null);
 const [rows,setRows] = useState([]);
 
 useEffect(() => {
-    axios.get("/api/getRegistered",{withCredentials:true})
+    axios.get("/api/getRegisteredByMe",{withCredentials:true})
         .then((response) => {
         setRows(response.data);
     });
