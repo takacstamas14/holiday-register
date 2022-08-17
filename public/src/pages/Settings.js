@@ -9,7 +9,7 @@ import {
     DialogContent,
     DialogContentText,
     DialogTitle,
-    FormControl, Input, InputAdornment, InputLabel,
+    FormControl, FormHelperText, Input, InputAdornment, InputLabel,
     ListItem
 } from "@mui/material";
 import TextField from "@mui/material/TextField";
@@ -24,7 +24,7 @@ import {
     ChevronRight, EmailTwoTone,
     EventAvailableTwoTone,
     EventBusyTwoTone,
-    EventNoteTwoTone, Group
+    EventNoteTwoTone, Group, Lock, SaveAsTwoTone
 } from "@mui/icons-material";
 import ListItemText from "@mui/material/ListItemText";
 import Box from "@mui/material/Box";
@@ -85,7 +85,7 @@ export default function Home() {
                 </FormControl>
                 <FormControl variant="standard" fullWidth={true}>
                     <InputLabel htmlFor="role">
-                        E-mail cím
+                        Jogosultság
                     </InputLabel>
                     <Input
                         disabled
@@ -99,6 +99,25 @@ export default function Home() {
                         value={data.role}
                     />
                 </FormControl>
+                <FormControl variant="standard" fullWidth={true}>
+                    <InputLabel htmlFor="password">
+                        Jelszó
+                    </InputLabel>
+                    <Input
+                        disabled
+                        id="password"
+                        type="password"
+                        startAdornment={
+                            <InputAdornment position="start">
+                                <Lock />
+                            </InputAdornment>
+                        }
+                    />
+                    <FormHelperText id="helpertext">Ha nem szeretnél jelszót változtatni, akkor hagyd üresen!</FormHelperText>
+                </FormControl>
+                <Button variant="contained" endIcon={<SaveAsTwoTone />}>
+                    Mentés
+                </Button>
             </Box>
             <Dialog open={open} onClose={handleClose} fullWidth={true} maxWidth={"sm"}>
                 <DialogTitle>{openedData.fullName} - {openedData.title}</DialogTitle>
