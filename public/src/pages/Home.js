@@ -43,15 +43,15 @@ export default function Home() {
 
     const handleEventClick = (info) => {
         console.log(info.event);
-        let obj = {};
+        let obj;
         obj = info.event;
         obj.startString = formatDate(obj.start);
         obj.endString = formatDate(obj.end);
         obj.fullName = obj.extendedProps.user.fullName;
         console.log(obj);
         setOpenedData(obj);
-        setOpenedUser(obj.extendedProps);
-        console.log(openedUser);
+        //setOpenedUser(obj.extendedProps);
+        //console.log(openedUser);
         handleClickOpen();
     }
 
