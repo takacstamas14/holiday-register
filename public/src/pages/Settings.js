@@ -111,6 +111,7 @@ export default function Home() {
                                 <Lock />
                             </InputAdornment>
                         }
+                        autoComplete="off"
                     />
                     <FormHelperText id="helpertext">Ha nem szeretnél jelszót változtatni, akkor hagyd üresen!</FormHelperText>
                 </FormControl>

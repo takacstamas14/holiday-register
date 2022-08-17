@@ -44,9 +44,6 @@ export default function RegisterHoliday() {
 
     return (
         <>
-            <Typography variant="h5" gutterBottom component="div">
-                Szabadság bejegyzése
-            </Typography>
             <FullCalendar
                 plugins={[interactionPlugin,dayGridPlugin]}
                 initialView="dayGridMonth"
@@ -57,10 +54,10 @@ export default function RegisterHoliday() {
             <Button variant="outlined" onClick={handleClickOpen}>Mentés</Button>
 
             <Dialog open={open} onClose={handleClose}>
-                <DialogTitle>Subscribe</DialogTitle>
+                <DialogTitle>Szabadság bejegyzése</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        kérlek add meg a szabadságod okát az alábbi mezőben
+                        Kérlek add meg a szabadságod okát az alábbi mezőben
                     </DialogContentText>
                     <TextField
                         autoFocus
@@ -75,7 +72,7 @@ export default function RegisterHoliday() {
                     />
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose}>Cancel</Button>
+                    <Button onClick={handleClose}>Mégsem</Button>
                     <Button onClick={sendDates}>Mentés</Button>
                 </DialogActions>
             </Dialog>

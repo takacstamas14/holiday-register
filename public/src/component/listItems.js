@@ -53,7 +53,7 @@ export const secondaryListItems = (
         <ListSubheader component="div" inset>
             Admin panel
         </ListSubheader>
-        <ListItemButton>
+        <ListItemButton href="/admin/userControls">
             <ListItemIcon>
                 <Group />
             </ListItemIcon>
