@@ -30,7 +30,7 @@ export const getRegistered = async (req,res) => {
 
     try {
         //User.belongsToMany(Holiday, { foreignKey: 'userId', through: Holiday });
-        Holiday.belongsTo(User);
+        //Holiday.belongsTo(User);
         //User.belongsToMany(Holiday);
 
         const registered = await Holiday.findAll({
