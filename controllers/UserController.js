@@ -64,7 +64,7 @@ export const userinfo = async (req,res) => {
             id: req.session.userId
         }
     });
-    return res.status(200).json(user);
+    return res.status(200).json(user[0]);
 }
 
 export const createUser = async(req,res) => {
