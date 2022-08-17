@@ -36,8 +36,8 @@ export default function Home() {
 
     const handleEventClick = (info) => {
         console.log(info.event);
-        //setOpenedData(info.event._instance);
-        //handleClickOpen();
+        setOpenedData(info.event);
+        handleClickOpen();
     }
 
     const formatDate = (date) => {
@@ -65,7 +65,7 @@ export default function Home() {
 
     />
             <Dialog open={open} onClose={handleClose}>
-                <DialogTitle>Teszt</DialogTitle>
+                <DialogTitle>{openedData.extendedProps.user.fullName}</DialogTitle>
                 <DialogContent dividers>
                     <List>
                         <ListItem>
