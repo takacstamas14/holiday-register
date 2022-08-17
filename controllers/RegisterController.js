@@ -35,7 +35,7 @@ export const getRegistered = async (req,res) => {
         //User.belongsToMany(Holiday);
 
         const registered = await Holiday.findAll({
-            attributes: ['id','title','startDate', 'endDate','userId'],
+            attributes: ['id','title','startDate', 'endDate'],
             include: [{
                 attributes: ['fullName','email'],
                 model: User,
