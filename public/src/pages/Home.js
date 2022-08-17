@@ -39,8 +39,9 @@ export default function Home() {
         console.log(info.event);
         let obj = {};
         obj = info.event;
-        obj.startStr = formatDate(obj.start);
-        obj.endStr = formatDate(obj.end);
+        obj.startString = formatDate(obj.start);
+        obj.endString = formatDate(obj.end);
+        console.log(obj);
         setOpenedData(obj);
         setOpenedUser(obj.extendedProps);
         console.log(openedUser);
