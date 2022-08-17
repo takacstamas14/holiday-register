@@ -80,7 +80,7 @@ export default function Home() {
 
     />
             <Dialog open={open} onClose={handleClose} fullWidth={true} maxWidth={"sm"}>
-                <DialogTitle>{openedData} - {openedData.title}</DialogTitle>
+                <DialogTitle>{openedData.fullName} - {openedData.title}</DialogTitle>
                 <DialogContent dividers>
                     <List>
                         <ListItem>
