@@ -24,7 +24,7 @@ import {
     ChevronRight, EmailTwoTone,
     EventAvailableTwoTone,
     EventBusyTwoTone,
-    EventNoteTwoTone
+    EventNoteTwoTone, Group
 } from "@mui/icons-material";
 import ListItemText from "@mui/material/ListItemText";
 import Box from "@mui/material/Box";
@@ -81,6 +81,22 @@ export default function Home() {
                             </InputAdornment>
                         }
                         value={data.emailAddress}
+                    />
+                </FormControl>
+                <FormControl variant="standard" fullWidth={true}>
+                    <InputLabel htmlFor="role">
+                        E-mail cím
+                    </InputLabel>
+                    <Input
+                        disabled
+                        id="role"
+                        type="text"
+                        startAdornment={
+                            <InputAdornment position="start">
+                                <Group />
+                            </InputAdornment>
+                        }
+                        value={data.role}
                     />
                 </FormControl>
             </Box>
