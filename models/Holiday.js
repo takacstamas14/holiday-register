@@ -12,6 +12,9 @@ const Holiday = db.define('holidays',{
     endDate: {
         type: DataTypes.DATE
     },
+    title:{
+        type: DataTypes.STRING
+    },
     userId: {
         type: DataTypes.INTEGER
     }
