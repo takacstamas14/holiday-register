@@ -104,7 +104,6 @@ export default function Home() {
                         Jelszó
                     </InputLabel>
                     <Input
-                        disabled
                         id="password"
                         type="password"
                         startAdornment={
