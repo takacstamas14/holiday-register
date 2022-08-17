@@ -29,6 +29,7 @@ import RegisterHoliday from "./RegisterHoliday";
 import Cookies from "js-cookie";
 import MyRegistries from "./MyRegistries";
 import axios from "axios";
+import Settings from "./Settings";
 
 function Copyright(props) {
     return (
@@ -216,6 +217,7 @@ function DashboardContent() {
                                         <Route exact path="/" element={<Home />} />
                                         <Route path="/registerHoliday" element={<RegisterHoliday />} />
                                         <Route path="/myRegistries" element={<MyRegistries />} />
+                                        <Route path="/settings" element={<Settings />} />
                                     </Routes>
                                 </Paper>
                             </Grid>

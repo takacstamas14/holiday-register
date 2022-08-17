@@ -33,7 +33,7 @@ export const mainListItems = (
             </ListItemIcon>
             <ListItemText primary="Eddigi szabadságaim" />
         </ListItemButton>
-        <ListItemButton>
+        <ListItemButton href="/settings">
             <ListItemIcon>
                 <ManageAccounts />
             </ListItemIcon>
