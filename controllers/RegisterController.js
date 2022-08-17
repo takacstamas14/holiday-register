@@ -36,7 +36,9 @@ export const getRegistered = async (req,res) => {
         const registered = await Holiday.findAll({
             attributes: ['id','title','startDate', 'endDate'],
             include: [{
-                attributes: ['id','fullName','email'],
+                through: {
+                    attributes: ['id','fullName','email']
+                },
                 model: User,
                 required: true
             }]
