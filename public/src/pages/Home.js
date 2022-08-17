@@ -11,7 +11,9 @@ export default function Home() {
         axios.get("/api/getRegistered",{withCredentials:true})
             .then((res) => {
                 console.log(res.data);
-                setData(res.data);
+                const arr = [];
+                arr.push(res.data);
+                setData(arr);
             });
     },[]);
 
@@ -21,7 +23,7 @@ export default function Home() {
         plugins={[dayGridPlugin]}
         initialView="dayGridMonth"
         locale={hu}
-        initialEvents={()=>{data.map((x)=>{console.log(x); return {id:x.id,start:x.start,end:x.end,title: x.title}})}}
+        events={data}
 
     />
         </>

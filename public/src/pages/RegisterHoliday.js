@@ -30,7 +30,7 @@ export default function RegisterHoliday() {
                 startDate: startDate.toISOString().split('.')[0],
                 endDate: endDate.toISOString().split('.')[0],
                 title: szabadsagOk
-            },{withCredentials: true}).then((response)=> {console.log(response)});
+            },{withCredentials: true}).then((response)=> {console.log(response);handleClose();});
         }
     }
 
