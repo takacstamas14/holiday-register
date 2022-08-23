@@ -38,7 +38,7 @@ router.delete("/api/holiday",verifySession,removeBooking);
 
 //Get all holidays
 router.get("/api/holidays",verifySession,getBookings);
-*/
+
 addAdmin();
-addUser();
+addUser();*/
 export default router;

@@ -35,26 +35,12 @@ export const logout = async(req,res) => {
 };
 
 export const addAdmin = () => {
-    const password = bcrypt.hash("user123",10,async (err,hash) => {
-        await User.create({
-            "fullName": "Admin",
-            "emailAddress": "takacst7200@gmail.com",
-            "password": hash,
-            "role": "admin"
-        });
-    });
+
     //return res.status(200).json({msg: "admin account created"})
 };
 
 export const addUser = () => {
-    const password = bcrypt.hash("user123",10,async (err,hash) => {
-        await User.create({
-            "fullName": "User",
-            "emailAddress": "tmstkcs@gmail.com",
-            "password": hash,
-            "role": "user"
-        });
-    });
+
     //return res.status(200).json({msg: "user account created"})
 };
 
