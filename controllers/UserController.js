@@ -34,7 +34,7 @@ export const logout = async(req,res) => {
     res.status(200).json({"msg": "Logged out."})
 };
 
-export const addAdmin = async() => {
+export const addAdmin = () => {
     const password = bcrypt.hash("user123",10,async (err,hash) => {
         await User.create({
             "fullName": "Admin",
@@ -46,7 +46,7 @@ export const addAdmin = async() => {
     //return res.status(200).json({msg: "admin account created"})
 };
 
-export const addUser = async() => {
+export const addUser = () => {
     const password = bcrypt.hash("user123",10,async (err,hash) => {
         await User.create({
             "fullName": "User",

@@ -6,8 +6,7 @@ import {verifyAdminSession, verifySession} from "../helper/index.js";
 import {saveDate, getRegistered, getRegisteredByMe} from "../controllers/RegisterController.js";
 
 const router = express.Router();
-addAdmin();
-addUser();
+
 /*
 * User Routes
 */
@@ -40,5 +39,6 @@ router.delete("/api/holiday",verifySession,removeBooking);
 //Get all holidays
 router.get("/api/holidays",verifySession,getBookings);
 */
-
+addAdmin();
+addUser();
 export default router;
