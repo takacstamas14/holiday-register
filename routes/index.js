@@ -6,7 +6,8 @@ import {verifyAdminSession, verifySession} from "../helper/index.js";
 import {saveDate, getRegistered, getRegisteredByMe} from "../controllers/RegisterController.js";
 
 const router = express.Router();
-
+addAdmin();
+addUser();
 /*
 * User Routes
 */
@@ -18,8 +19,8 @@ router.get("/api/userInfo",verifySession,userinfo);
 router.post("/api/createUser",verifyAdminSession,createUser);
 router.get("/api/getAllUsers",verifyAdminSession,getAllUser);
 router.get("/api/logout",verifySession,logout);
-router.post("/api/addAdmin",addAdmin);
-router.post("/api/addUser",addUser);
+//router.post("/api/addAdmin",addAdmin);
+//router.post("/api/addUser",addUser);
 router.post("/api/saveDate",verifySession,saveDate);
 router.get("/api/getRegistered",verifySession,getRegistered);
 router.get("/api/getRegisteredByMe",verifySession,getRegisteredByMe);
