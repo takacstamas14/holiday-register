@@ -7,6 +7,7 @@ import router from "./routes/index.js";
 import * as path from "path";
 import {fileURLToPath} from 'url';
 import cors from "cors";
+import bcrypt from "bcrypt";
 import User from "./models/User.js";
 const app = express()
 
