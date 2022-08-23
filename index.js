@@ -23,7 +23,6 @@ app.use(session({
             maxAge: 60 * 60 * 24 * 1000,
             expires: 60 * 60 * 24 * 1000
         },
-
     })
 );
 app.use(router);
