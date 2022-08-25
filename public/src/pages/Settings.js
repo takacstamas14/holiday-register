@@ -50,6 +50,21 @@ export default function Home() {
         setOpen(false);
     };
 
+    const handleOnChange = (key,value) => {
+        const tempData = data;
+        switch (key)
+        {
+            case "fullName":
+                tempData.fullName = value;
+                break;
+            case "emailAddress":
+                tempData.emailAddress = value;
+                break;
+        }
+        setData(tempData);
+
+    };
+
 
     return (
         <>
@@ -80,8 +95,8 @@ export default function Home() {
                                 <EmailTwoTone />
                             </InputAdornment>
                         }
-                        value={data.emailAddress}
-                        onChange={(e) => {data.emailAddress = e.target.value; setData(data);}}
+                        defaultValue={data.emailAddress}
+                        onChange={(event) => {handleOnChange("emailAddress",event.target.value)}}
                     />
                 </FormControl>
                 <FormControl variant="standard" fullWidth={true}>
