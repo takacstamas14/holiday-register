@@ -37,7 +37,7 @@ function Copyright(props) {
         <Typography variant="body2" color="text.secondary" align="center" {...props}>
             {'Copyright © '}
             <Link color="inherit" href="#">
-                Your Website
+                Szabadság nyilvántartó
             </Link>{' '}
             {new Date().getFullYear()}
             {'.'}
@@ -95,7 +95,7 @@ const mdTheme = createTheme();
 
 function DashboardContent() {
     const [open, setOpen] = React.useState(true);
-    const [cookies, setCookie] = useCookies();
+    const [cookies, setCookie,removeCookie] = useCookies();
     const [userId, setUserId] = useState(null);
     const [admin,setAdmin] = useState(false);
 
@@ -110,6 +110,11 @@ function DashboardContent() {
 
     useEffect(()=>{
        axios.get("/api/userInfo",{withCredentials:true}).then((result) => {
+           if(result.data.errorCode == 1)
+           {
+               removeCookie("userId");
+               window.location.reload();
+           }
            if(result.data.role === "admin")
            {
                setAdmin(true);
