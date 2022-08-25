@@ -110,16 +110,19 @@ function DashboardContent() {
 
     useEffect(()=>{
        axios.get("/api/userInfo",{withCredentials:true}).then((result) => {
-           if(result.data.errorCode == 1)
+
+               if (result.data.role === "admin") {
+                   setAdmin(true);
+               } else {
+                   setAdmin(false);
+               }
+
+       }).catch((err) => {
+           if(err.response.data.errorCode == 1)
            {
+               alert(err.response.data.errorCode);
                removeCookie("userId");
                window.location.reload();
-           }
-           if(result.data.role === "admin")
-           {
-               setAdmin(true);
-           } else {
-               setAdmin(false);
            }
        })
     },[])
