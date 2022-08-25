@@ -81,6 +81,7 @@ export default function Home() {
                             </InputAdornment>
                         }
                         value={data.emailAddress}
+                        onChange={(e) => {data.emailAddress = e.target.value; setData(data);}}
                     />
                 </FormControl>
                 <FormControl variant="standard" fullWidth={true}>
