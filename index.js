@@ -53,6 +53,7 @@ db.sync({alter: true, force: true}).then(result => {
                 "role": "user"
             });
         });
+        console.log("teszt");
 
     });
     app.listen(process.env.PORT || 5000);
