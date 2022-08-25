@@ -96,6 +96,7 @@ export default function Home() {
                             </InputAdornment>
                         }
                         defaultValue={data.emailAddress}
+
                         onChange={(event) => {handleOnChange("emailAddress",event.target.value)}}
                     />
                 </FormControl>
