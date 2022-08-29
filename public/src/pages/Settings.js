@@ -95,6 +95,7 @@ export default function Home() {
                                 <EmailTwoTone />
                             </InputAdornment>
                         }
+                        inputComponent="input"
                         value={data.emailAddress}
                         onChange={(event) => {handleOnChange("emailAddress",event.target.value)}}
                     />
