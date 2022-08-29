@@ -95,8 +95,7 @@ export default function Home() {
                                 <EmailTwoTone />
                             </InputAdornment>
                         }
-                        defaultValue={data.emailAddress}
-
+                        value={data.emailAddress}
                         onChange={(event) => {handleOnChange("emailAddress",event.target.value)}}
                     />
                 </FormControl>
