@@ -84,19 +84,16 @@ export default function Home() {
                     />
                 </FormControl>
                 <FormControl variant="standard" fullWidth={true}>
-                    <InputLabel htmlFor="emailAddress">
-                        E-mail cím
-                    </InputLabel>
                     <Input
                         id="emailAddress"
                         type="email"
+                        label="E-mail cím"
                         startAdornment={
                             <InputAdornment position="start">
                                 <EmailTwoTone />
                             </InputAdornment>
                         }
-                        inputComponent="input"
-                        value={data.emailAddress}
+                        defaultValue={data.emailAddress}
                         onChange={(event) => {handleOnChange("emailAddress",event.target.value)}}
                     />
                 </FormControl>
